@@ -27,7 +27,7 @@
 - [x] `Dockerfile` + `docker-compose.yml` (api, worker, redis, postgres)
 - [x] `GET /health` returns 200
 - [x] Copy the 5 project docs into the repo `/docs`
-- [ ] First commit (deferred: assistant does not commit unless explicitly asked)
+- [x] First commit (`42e9b81` — user explicitly requested it after Phase 4 local work)
 
 **Exit criteria:** `docker compose up` starts all four services; `/health` is green.
 Verified locally 2026-11-21: 4 healthy containers, `/health` 200, `pytest -q` 2 passed.
@@ -123,7 +123,7 @@ Verified locally 2026-11-21: real Redis token bucket blocks the 3rd token with a
 - [x] Known limitations (free-tier spin-down, duplicates on 503 retry)
 - [ ] Deployment URL
 
-Verified locally 2026-11-21: **90 tests pass** in the repo and in a clean venv copy installed from `requirements.txt`; ruff/black clean; Docker rebuild healthy with 5 services; `/health` returns `{"status":"ok"}`; `start.sh` executable and syntax-valid; live dispatch returned 202 and produced one attempt log. Render provisioning/deploy and the public URL remain pending user credentials and a repository remote.
+Verified locally 2026-11-21: **90 tests pass** in the repo and in a clean venv copy installed from `requirements.txt`; ruff/black clean; Docker rebuild healthy with 5 services; `/health` returns `{"status":"ok"}`; `start.sh` executable and syntax-valid; live dispatch returned 202 and produced one attempt log. Committed as `42e9b81`. User will deploy manually and send the public URL to record here.
 
 **Exit criteria:** a stranger can clone, `docker compose up`, run the cURL examples and `pytest` without asking questions.
 

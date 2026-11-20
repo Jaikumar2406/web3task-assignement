@@ -20,20 +20,20 @@
 
 | Item | Value |
 |---|---|
-| **Current phase** | Phase 4 — local finalization complete; Render deploy pending; commits still pending user request |
-| **Last completed task** | Phase 4 local work: `start.sh`, `.dockerignore`, lint deps, full README, named attempt-log test, 90 tests green |
-| **Next task** | Provide Render access/repo remote to deploy, record public URL, then first commit only if requested |
-| **Blockers** | Render account credentials/API key and repository remote; no commit requested |
+| **Current phase** | Phase 4 — local finalization complete and committed (`42e9b81`); Render deploy pending |
+| **Last completed task** | First commit requested and made: 42 files, 90 tests green, ruff/black clean |
+| **Next task** | User deploys manually and sends the public URL; record it here and in README |
+| **Blockers** | Public URL pending from user; no commit pending |
 | **Deadline** | _fill in: date/time_ |
 | **Live URL** | _not deployed yet_ |
 | **Repo URL** | _fill in_ |
 
 ### Phase tracker
-- [ ] Phase 0 — Setup (code/tests verified; commit not yet made)
-- [ ] Phase 1 — Core backend (code/tests verified; commit not yet made)
-- [ ] Phase 2 — Reliability (code/tests verified; commit not yet made)
-- [ ] Phase 3 — Protection (code/tests verified; commit not yet made)
-- [ ] Phase 4 — Finalization (local work verified; Render deploy + URL pending)
+- [x] Phase 0 — Setup (verified; committed in `42e9b81`)
+- [x] Phase 1 — Core backend (verified; committed in `42e9b81`)
+- [x] Phase 2 — Reliability (verified; committed in `42e9b81`)
+- [x] Phase 3 — Protection (verified; committed in `42e9b81`)
+- [ ] Phase 4 — Finalization (local work committed in `42e9b81`; Render deploy + URL pending)
 - [ ] Phase 5 — Verification & submission
 
 ## 3. Non-Negotiable Facts (quick reference)
@@ -168,10 +168,10 @@ Learned:  Redis keys are `rl:<origin>` so test cleanup must match `rl:*test-*`; 
 Next:     First commit (if requested), then Phase 4 — deployment and final README.
 
 ### 2026-11-21 — Phase 4 local finalization
-Done:     Added `start.sh` (worker+embedded beat+Uvicorn), `.dockerignore`, lint/format deps, full README and named attempt-log test. 90 tests pass in repo and clean venv; ruff/black clean; Docker rebuild healthy; `/health` 200; smoke dispatch 202 → one attempt log.
+Done:     Added `start.sh` (worker+embedded beat+Uvicorn), `.dockerignore`, lint/format deps, full README and named attempt-log test. 90 tests pass in repo and clean venv; ruff/black clean; Docker rebuild healthy; `/health` 200; smoke dispatch 202 → one attempt log. User requested the first commit: `42e9b81`.
 Decided:  D-13 implemented as the free-tier Render strategy; paid Background Worker remains an option.
 Learned:  PowerShell inline JSON to `curl.exe` is unreliable here; use `Invoke-RestMethod`. Fresh-copy verification excludes `.env`/caches and installs only from `requirements.txt`.
-Next:     User must provide Render credentials and a repo remote to deploy, then record the public URL; first commit only if requested.
+Next:     User deploys manually and sends the public URL; record it in memory.md and README.
 
 ### (template — copy above)
 
