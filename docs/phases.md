@@ -141,7 +141,9 @@ Run these **against the deployed URL**:
 - [ ] Invalid payload → 422
 - [ ] Walk through the **Acceptance Criteria** in `prd.md` §14 — every box ticked
 - [ ] Repo is public, no secrets committed, README links the live URL
-- [ ] Final `memory.md` update
+- [ ] Final `memory.md` update (local status recorded; live URL/repo URL fields still pending)
+
+Local submission checks 2026-11-21: **90 tests pass**, ruff/black clean, 5 compose services healthy, `/health` 200, clean working tree at `2575ab8`, no tracked secrets/stray `print`s/unresolved `TODO`s. Deployed-URL scenarios, public repo and live URL remain unchecked pending user-provided URLs.
 
 ---
 

@@ -20,10 +20,10 @@
 
 | Item | Value |
 |---|---|
-| **Current phase** | Phase 4 — local finalization complete and committed (`42e9b81`); Render deploy pending |
-| **Last completed task** | First commit requested and made: 42 files, 90 tests green, ruff/black clean |
-| **Next task** | User deploys manually and sends the public URL; record it here and in README |
-| **Blockers** | Public URL pending from user; no commit pending |
+| **Current phase** | Phase 5 — local verification complete; deployed checks pending URLs |
+| **Last completed task** | Final local submission verification: 90 tests green, ruff/black clean, Docker healthy, clean tree at `2575ab8` |
+| **Next task** | User sends live API URL and public repo URL; run deployed Phase 5 scenarios and record both URLs |
+| **Blockers** | Live URL and repo URL pending from user; no commit pending |
 | **Deadline** | _fill in: date/time_ |
 | **Live URL** | _not deployed yet_ |
 | **Repo URL** | _fill in_ |
@@ -34,7 +34,7 @@
 - [x] Phase 2 — Reliability (verified; committed in `42e9b81`)
 - [x] Phase 3 — Protection (verified; committed in `42e9b81`)
 - [ ] Phase 4 — Finalization (local work committed in `42e9b81`; Render deploy + URL pending)
-- [ ] Phase 5 — Verification & submission
+- [ ] Phase 5 — Verification & submission (local checks done; deployed scenarios + URLs pending)
 
 ## 3. Non-Negotiable Facts (quick reference)
 
@@ -172,6 +172,12 @@ Done:     Added `start.sh` (worker+embedded beat+Uvicorn), `.dockerignore`, lint
 Decided:  D-13 implemented as the free-tier Render strategy; paid Background Worker remains an option.
 Learned:  PowerShell inline JSON to `curl.exe` is unreliable here; use `Invoke-RestMethod`. Fresh-copy verification excludes `.env`/caches and installs only from `requirements.txt`.
 Next:     User deploys manually and sends the public URL; record it in memory.md and README.
+
+### 2026-11-21 — Phase 5 local verification
+Done:     Re-ran 90 tests, ruff/black, Docker stack and `/health`; clean tree at `2575ab8`; no tracked secrets, stray prints or unresolved TODOs. Ticked the first 10 acceptance criteria locally in `prd.md`.
+Decided:  No new decisions; deployed scenarios must not be claimed without the live URL.
+Learned:  `git remote -v` is empty, so the repo is not public yet; acceptance items 11–12 remain blocked.
+Next:     User sends live API URL and public repo URL, then run deployed Phase 5 scenarios and record both URLs.
 
 ### (template — copy above)
 

@@ -287,18 +287,20 @@ Publicly deployed (free tier where available) with: FastAPI API service, Redis, 
 
 ## 14. Acceptance Criteria
 
-- [ ] Ingestion API works and responds 202 immediately
-- [ ] Jobs are persisted and queued
-- [ ] Worker delivers webhook events
-- [ ] Retries follow 2 / 4 / 8 s exponential backoff, max 3 retries
-- [ ] Permanent 4xx errors are not retried
-- [ ] Delivery logs are maintained for every attempt
-- [ ] Per-destination rate limiting works; limited jobs are rescheduled, never lost
-- [ ] Slow destination does not block the API
-- [ ] Persisted jobs survive worker restarts (sweeper + `acks_late`)
-- [ ] All 13 required test scenarios pass
+- [x] Ingestion API works and responds 202 immediately
+- [x] Jobs are persisted and queued
+- [x] Worker delivers webhook events
+- [x] Retries follow 2 / 4 / 8 s exponential backoff, max 3 retries
+- [x] Permanent 4xx errors are not retried
+- [x] Delivery logs are maintained for every attempt
+- [x] Per-destination rate limiting works; limited jobs are rescheduled, never lost
+- [x] Slow destination does not block the API
+- [x] Persisted jobs survive worker restarts (sweeper + `acks_late`)
+- [x] All 13 required test scenarios pass
 - [ ] Deployed and publicly accessible; retry verified in deployment
-- [ ] GitHub repo and README complete
+- [ ] GitHub repo and README complete — README complete; public repo URL pending
+
+Local verification 2026-11-21: the first ten items are covered by 90 passing tests plus the healthy local Docker stack. The last two require the deployed URL and a public repository remote.
 
 ## 15. Assumptions and Clarifications
 
